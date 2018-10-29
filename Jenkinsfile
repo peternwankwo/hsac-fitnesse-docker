@@ -15,7 +15,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				sh "buildBase.sh"			               
+				sh 'buildBase.sh'			               
             }
 
         }
@@ -24,7 +24,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				sh "buildChrome.sh"			               
+				sh 'buildChrome.sh'			               
             }
 
         }
