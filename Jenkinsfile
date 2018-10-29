@@ -1,9 +1,6 @@
 pipeline {
     agent any
-	
-	tools {
-        maven 'maven'
-    }
+
     stages{
         stage('Setup and compile Maven'){
             steps{
@@ -18,7 +15,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "buildBase.sh"			               
+				sh "buildBase.sh"			               
             }
 
         }
@@ -27,7 +24,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "buildChrome.sh"			               
+				sh "buildChrome.sh"			               
             }
 
         }
@@ -36,7 +33,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "buildTest.sh"			               
+				sh "buildTest.sh"			               
             }
 
         }
@@ -45,7 +42,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "combineReports.sh"			               
+				sh "combineReports.sh"			               
             }
 
         }
@@ -63,7 +60,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "runTests.sh"	               
+				sh "runTests.sh"	               
             }
 
         }
@@ -72,7 +69,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "htmlReportIndexGenerator.sh"	               
+				sh "htmlReportIndexGenerator.sh"	               
             }
 
         }
