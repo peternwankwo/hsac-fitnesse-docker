@@ -40,5 +40,14 @@ pipeline {
             }
 
         }
+		
+		stage('Combine reports'){
+            steps{
+                
+				//Compile maven using the docker file
+				bat "combineReports.sh"			               
+            }
+
+        }
     }
 }
