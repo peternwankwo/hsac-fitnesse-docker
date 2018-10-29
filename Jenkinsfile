@@ -63,7 +63,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "/test/runTests.sh"	               
+				bat "test/runTests.sh"	               
             }
 
         }
@@ -72,7 +72,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				bat "./test/htmlReportIndexGenerator.sh"	               
+				bat "test/htmlReportIndexGenerator.sh"	               
             }
 
         }
