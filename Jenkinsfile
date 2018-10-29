@@ -49,5 +49,32 @@ pipeline {
             }
 
         }
+		
+		stage('Tests'){
+            steps{
+                
+				//Compile maven using the docker file
+				bat "docker build -t fitnessetests ./test"	               
+            }
+
+        }
+		
+		stage('Tests run'){
+            steps{
+                
+				//Compile maven using the docker file
+				bat "./test/runTests.sh"	               
+            }
+
+        }
+		
+		stage('Tests reports'){
+            steps{
+                
+				//Compile maven using the docker file
+				bat "./test/htmlReportIndexGenerator.sh"	               
+            }
+
+        }
     }
 }
