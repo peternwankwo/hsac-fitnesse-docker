@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     stages{
-        stage('Setup and compile Maven'){
-            steps{
+       // stage('Setup and compile Maven'){
+         //   steps{
                 
 				//Compile maven using the docker file
-				bat "docker build -t mavencompile ."			               
-            }
+			//	bat "docker build -t mavencompile ."			               
+            //}
 
-        }
+        //}
 		
 		stage('Build the base'){
             steps{
                 
 				//Compile maven using the docker file
-				sh 'buildBase.sh'			               
+				bat 'buildBase.sh'			               
             }
 
         }
@@ -24,7 +24,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				sh 'buildChrome.sh'			               
+				bat 'buildChrome.sh'			               
             }
 
         }
@@ -33,7 +33,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				sh "buildTest.sh"			               
+				bat "buildTest.sh"			               
             }
 
         }
@@ -42,25 +42,25 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				sh "combineReports.sh"			               
+				bat "combineReports.sh"			               
             }
 
         }
 		
-		stage('Tests'){
-            steps{
+		//stage('Tests'){
+          //  steps{
                 
 				//Compile maven using the docker file
-				bat "docker build -t fitnessetests ./test"	               
-            }
+			//	bat "docker build -t fitnessetests ./test"	               
+            //}
 
-        }
+        //}
 		
 		stage('Tests run'){
             steps{
                 
 				//Compile maven using the docker file
-				sh "runTests.sh"	               
+				bat "runTests.sh"	               
             }
 
         }
@@ -69,7 +69,7 @@ pipeline {
             steps{
                 
 				//Compile maven using the docker file
-				sh "htmlReportIndexGenerator.sh"	               
+				bat "htmlReportIndexGenerator.sh"	               
             }
 
         }
