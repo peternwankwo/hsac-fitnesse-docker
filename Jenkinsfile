@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     stages{
-       // stage('Setup and compile Maven'){
-         //   steps{
+        stage('Setup and compile Maven'){
+            steps{
                 
 				//Compile maven using the docker file
-			//	bat "docker build -t mavencompile ."			               
-            //}
+				bat "docker build -t mavencompile ."			               
+            }
 
-        //}
+        }
 		
 		stage('Build the base'){
             steps{
@@ -47,14 +47,14 @@ pipeline {
 
         }
 		
-		//stage('Tests'){
-          //  steps{
+		stage('Tests'){
+            steps{
                 
 				//Compile maven using the docker file
-			//	bat "docker build -t fitnessetests ./test"	               
-            //}
+				bat "docker build -t fitnessetests ./test"	               
+            }
 
-        //}
+        }
 		
 		stage('Tests run'){
             steps{
@@ -71,6 +71,7 @@ pipeline {
 				//Compile maven using the docker file
 				bat "htmlReportIndexGenerator.sh"	               
             }
+			
 
         }
     }
